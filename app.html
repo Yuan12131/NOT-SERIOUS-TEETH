@@ -87,7 +87,7 @@
       score.textContent = `양치 횟수 : ${event.detail}`;
 
       if(event.detail >= 1){
-        setInterval(function(){
+        create = setInterval(function(){
 
           const blood = document.createElement("div");
           teeth.appendChild(blood);
@@ -107,6 +107,10 @@
           blood.style.top = y + "px"
         }, 1000)
       }
+
+      setTimeout(() => {
+        clearInterval(create)
+      }, 10000)
 
     });
   </script>
