@@ -68,14 +68,16 @@
     console.log(teeth)
 
     const brush = root.children[1]
-    console.dir(brush)
+    console.log(brush)
 
     const score = root.children[2]
     console.log(score)
 
     console.log(brush.getBoundingClientRect())
 
-    brush.addEventListener('mousedown', () => {
+    var val = score.innerHTML
+
+    brush.addEventListener('click', () => {
 
         moveOne = setTimeout(() => {
           brush.style.right = "150px";
@@ -96,9 +98,13 @@
             brush.style.left = "328px"
           }, 1000)
 
-      score.textContent = `양치 횟수 : ${event.detail}`;
-      
-      if(event.detail >= 5){
+
+
+        val++;
+        console.log(val);
+        score.innerHTML = "양치횟수 : " + val + "회";
+
+      if(val >= 5){
          make = setInterval(function(){
           
           const blood = document.createElement("div");
@@ -123,7 +129,9 @@
         setTimeout(() => {
           clearInterval(move)
         }, 5000)
+
       }
+
     });
       </script>
 </body>
