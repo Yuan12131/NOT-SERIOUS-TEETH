@@ -74,21 +74,27 @@
     console.log(score)
 
 
-    brush.addEventListener('click', () => {
+    brush.addEventListener('mousedown', () => {
+
       moveOne = setTimeout(() => {
         brush.style.right = "150px";
 
         moveTwo = setTimeout(() => {
-          brush.style.left = "350px";
-        }, 300)
+          brush.style.left = "250px";
 
+          
+          clearTimeout(moveOne);
+          clearTimeout(moveTwo);
+        }, 300)
+        
       }, 300)
+    
       
       score.textContent = `양치 횟수 : ${event.detail}`;
-
-      if(event.detail >= 1){
-        create = setInterval(function(){
-
+      
+      if(event.detail >= 5){
+         make = setInterval(function(){
+          
           const blood = document.createElement("div");
           teeth.appendChild(blood);
           console.dir(blood)
@@ -99,20 +105,22 @@
           blood.style.backgroundRepeat = "no-repeat";
           blood.style.backgroundSize = "contain"
           blood.style.position = "absolute";
-
-          const x = Math.random() * (1000);
+          
+          const x = Math.random() * (900);
           const y = Math.random() * (600);
-
+          
           blood.style.left = x + "px"
-          blood.style.top = y + "px"
-        }, 1000)
+          blood.style.bottom = y + "px"
+
+        }, 900)
+
+        setTimeout(() => {
+          clearInterval(move)
+        }, 5000)
       }
-
-      setTimeout(() => {
-        clearInterval(create)
-      }, 10000)
-
+      
+      
     });
-  </script>
+    </script>
 </body>
 </html>
