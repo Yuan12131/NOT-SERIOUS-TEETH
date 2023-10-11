@@ -68,28 +68,34 @@
     console.log(teeth)
 
     const brush = root.children[1]
-    console.log(brush)
+    console.dir(brush)
 
     const score = root.children[2]
     console.log(score)
 
+    console.log(brush.getBoundingClientRect())
 
     brush.addEventListener('mousedown', () => {
 
-      moveOne = setTimeout(() => {
-        brush.style.right = "150px";
+        moveOne = setTimeout(() => {
+          brush.style.right = "150px";
+          clearTimeout(moveOne)
 
-        moveTwo = setTimeout(() => {
-          brush.style.left = "250px";
-
+            moveTwo = setTimeout(() => {
+              brush.style.left = "250px";
+              clearTimeout(moveTwo)
+              
+            }, 300)
+            
+          }, 300)
           
-          clearTimeout(moveOne);
-          clearTimeout(moveTwo);
-        }, 300)
-        
-      }, 300)
-    
-      
+          setTimeout(function(){
+            clearTimeout(moveOne)
+            clearTimeout(moveTwo)
+            brush.style.right = "1008px"
+            brush.style.left = "328px"
+          }, 1000)
+
       score.textContent = `양치 횟수 : ${event.detail}`;
       
       if(event.detail >= 5){
@@ -118,9 +124,7 @@
           clearInterval(move)
         }, 5000)
       }
-      
-      
     });
-    </script>
+      </script>
 </body>
 </html>
