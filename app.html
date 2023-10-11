@@ -44,6 +44,14 @@
       width: 10vw;
       height: 3vh;
     }
+    
+    blood{
+      background-image: url('https://png.pngtree.com/png-clipart/20191121/original/pngtree-red-drops-of-blood-icon-png-image_5146725.jpg');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+
   </style>
 </head>
 <body>
@@ -77,6 +85,20 @@
       }, 300)
       
       score.textContent = `양치 횟수 : ${event.detail}`;
+      
+      if(event.detail >= 1){
+        const blood = document.createElement("div");
+        teeth.appendChild(blood);
+        console.dir(blood)
+        blood.style.width = "10vw"
+        blood.style.height = "10vw"
+        blood.style.backgroundImage = "url('https://www.svgrepo.com/show/163600/blood.svg')"
+        blood.style.backgroundPosition = "center";
+        blood.style.backgroundRepeat = "no-repeat";
+        blood.style.backgroundSize = "contain"
+        blood.style.position = "absolute";
+        blood.style.top = "200px";
+      }
 
     });
   </script>
