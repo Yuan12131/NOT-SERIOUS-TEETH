@@ -58,11 +58,11 @@
     console.log(brush)
 
 
-    brush.addEventListener('click', function(){
-      moveOne = setTimeout(function(){
+    brush.addEventListener('click', () => {
+      moveOne = setTimeout(() => {
         brush.style.right = "150px";
 
-        moveTwo = setTimeout(function(){
+        moveTwo = setTimeout(() => {
           brush.style.left = "350px";
         }, 300)
 
