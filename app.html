@@ -28,19 +28,17 @@
       background-position: center;
       display: flex;
       position: relative;
-      left: 20vw;
     }
 
     #root > div:nth-child(2){
-      width: 30vw;
-      height: 30vh;
+      width: 40vw;
+      height: 40vh;
       background-image: url('https://www.svgrepo.com/show/193689/toothbrush.svg');
       background-repeat: no-repeat;
       background-size: contain;
       background-position: center;
       transform: rotate( -140deg );
-      position: relative;
-      right: 30vw;
+      position: absolute;
     }
   </style>
 </head>
@@ -59,7 +57,18 @@
     const brush = root.children[1]
     console.log(brush)
 
-    
+
+    brush.addEventListener('click', function(){
+      moveOne = setTimeout(function(){
+        brush.style.right = "150px";
+
+        moveTwo = setTimeout(function(){
+          brush.style.left = "350px";
+        }, 300)
+
+      }, 300)
+      
+    });
   </script>
 </body>
 </html>
