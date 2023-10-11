@@ -40,10 +40,15 @@
       transform: rotate( -140deg );
       position: absolute;
     }
+    #root > div:nth-child(3){
+      width: 10vw;
+      height: 3vh;
+    }
   </style>
 </head>
 <body>
   <div id="root">
+    <div></div>
     <div></div>
     <div></div>
   </div>
@@ -57,6 +62,9 @@
     const brush = root.children[1]
     console.log(brush)
 
+    const score = root.children[2]
+    console.log(score)
+
 
     brush.addEventListener('click', () => {
       moveOne = setTimeout(() => {
@@ -68,6 +76,8 @@
 
       }, 300)
       
+      score.textContent = `양치 횟수 : ${event.detail}`;
+
     });
   </script>
 </body>
