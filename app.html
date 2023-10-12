@@ -61,6 +61,7 @@
     <div></div>
   </div>
   <script>
+    // root, 치아 이미지, 칫솔 이미지 변수 선언
     const root = document.getElementById("root")
     console.dir(root);
 
@@ -75,13 +76,16 @@
 
     console.log(brush.getBoundingClientRect())
 
+    // 횟수 텍스트, 칫솔 이미지 움직이는 함수, 피 이미지 만드는 함수
     var val = score.innerHTML
     var moveOne = null;
     var moveTwo = null;
     var make = null;
 
+    // 칫솔 이미지 클릭시 함수 실행
     brush.addEventListener('click', () => {
 
+      // 칫솔을 일정 시간 동안 움직이게 하는 setimeout 함수
         moveOne = setTimeout(() => {
           brush.style.right = "150px";
           clearTimeout(moveOne)
@@ -94,6 +98,7 @@
             
           }, 300)
           
+          // 일정 시간 후 위치 제자리, 움직이는 함수 종료
           setTimeout(function(){
             clearTimeout(moveOne)
             clearTimeout(moveTwo)
@@ -102,12 +107,14 @@
           }, 1000)
 
 
-
+        // 클릭횟수 카운팅
         val++;
         console.log(val);
         score.innerHTML = "양치횟수 : " + val + "회";
 
+      // 만약 클릭 횟수가 5회를 넘으면 setInterval 실행 
       if(val >= 5){
+        // 일정 시간마다 랜덤으로 치아 이미지 위에 피 이미지 생성
          make = setInterval(function(){
           
           const blood = document.createElement("div");
@@ -129,6 +136,7 @@
 
         }, 900)
 
+        // 일정시간 후에 interval 종료
         setTimeout(() => {
           clearInterval(move)
         }, 5000)
