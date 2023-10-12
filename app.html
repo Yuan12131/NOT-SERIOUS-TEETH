@@ -20,8 +20,8 @@
     }
 
     #root > div:nth-child(1){
-      width: 80vw;
-      height: 80vh;
+      width: 1300px;
+      height: 1000px;
       background-image: url("https://img.freepik.com/free-vector/human-teeth-model-on-white-background_1308-108364.jpg");
       background-repeat: no-repeat;
       background-size: contain;
@@ -76,6 +76,9 @@
     console.log(brush.getBoundingClientRect())
 
     var val = score.innerHTML
+    var moveOne = null;
+    var moveTwo = null;
+    var make = null;
 
     brush.addEventListener('click', () => {
 
@@ -118,7 +121,7 @@
           blood.style.backgroundSize = "contain"
           blood.style.position = "absolute";
           
-          const x = Math.random() * (900);
+          const x = Math.random() * (1000);
           const y = Math.random() * (600);
           
           blood.style.left = x + "px"
